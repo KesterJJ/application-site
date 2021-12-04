@@ -88,10 +88,10 @@ function dropMenu() {
     menu.getElementsByClassName("buttons")[1].style.transitionDelay = "0.2s";
     menu.getElementsByClassName("buttons")[2].style.transitionDelay = "0.2s";
     menu.getElementsByClassName("buttons")[3].style.transitionDelay = "0.2s";
-    menu.getElementsByClassName("buttons")[0].style.top = "500px";
-    menu.getElementsByClassName("buttons")[1].style.top = "500px";
-    menu.getElementsByClassName("buttons")[2].style.top = "500px";
-    menu.getElementsByClassName("buttons")[3].style.top = "500px";
+    menu.getElementsByClassName("buttons")[0].style.top = "55%";
+    menu.getElementsByClassName("buttons")[1].style.top = "55%";
+    menu.getElementsByClassName("buttons")[2].style.top = "55%";
+    menu.getElementsByClassName("buttons")[3].style.top = "55%";
 }
 
 function liftMenu() {

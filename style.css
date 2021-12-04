@@ -33,6 +33,7 @@
     #writing, #title {
         opacity: 0;
     transition: opacity 0.5s;
+    z-index: -2;
     }
     
     #heading {
@@ -74,6 +75,7 @@
     height: 150%;
     margin: 0 30% 0 30%;
     text-align: center;
+    z-index: 1;
     }
     
     .buttons {
@@ -84,4 +86,18 @@
     top: 0px;
     text-decoration: none;
     color: #888888;
+    }
+
+
+
+
+
+#container {
+    display: flex;
+    width: 75%;
+}
+
+    img {
+        width: 25%;
+        height: auto;
     }
