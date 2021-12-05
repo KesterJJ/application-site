@@ -14,7 +14,43 @@ var feature = document.getElementById("feature");
 var about = document.getElementById("about");
 var contact = document.getElementById("contact");
 
+//Variables below here are for Project Gallery
+var container = document.getElementById("container");
+var lolCat = document.getElementById("lolCat");
+var tipCalculator = document.getElementById("tipCalculator");
+var burly = document.getElementById("burlyHerd");
+var numberizor = document.getElementById("numberizor");
+var passwordCreator = document.getElementById("passwordCreator");
+var passW = document.getElementById("passW");
+var lolC = document.getElementById("lolC");
+var numB = document.getElementById("numB");
+var tipC = document.getElementById("tipC");
+var passWURL = "https://kesterjj.github.io/password-creator/";
+var numBURL = "https://kesterjj.github.io/numberizor/";
+var lolCURL = "https://kesterjj.github.io/lolcat-clock/";
+var tipCURL = "https://kesterjj.github.io/tip-calculator/";
 
+var projectOpen = false;
+var project1;
+var image1;
+var obj1;
+
+
+var obj = document.createElement("object");
+obj.type = "text/html";
+obj.width = "100";
+obj.height = "500";
+
+//variables above for project gallery
+
+
+// Everything below here until the ending comment controls the menu function and pages structure
+
+
+//delays links so animation can take place
+function delay(URL) {
+    setTimeout( function() { window.location = URL }, 900 );
+}
 
 //brightens the menu button onmousover
 function lighten() {
@@ -47,7 +83,14 @@ function fadeOut() {
     title.style.transitionDelay = "0s";
     writing.style.opacity = "0";
     title.style.opacity = "0";
+
+    if (title.innerHTML == "PROJECT GALLERY") {
+        container.style.transitionDelay = "0s";
+        container.style.opacity = "0";
+        container.style.zIndex = "-2";
+    }
 }
+
 
 function wingsIn() {
     left.style.transitionDelay = "0s";
@@ -105,23 +148,30 @@ function liftMenu() {
     menu.getElementsByClassName("buttons")[3].style.top = "0px";
 }
 
-//delays links so animation can take place
-function delay(URL) {
-    setTimeout( function() { window.location = URL }, 1000 );
-}
 
-function fadeInStart() {
+
+fadeInStart = () => {
     writing.style.opacity = "1";
     title.style.opacity = "1";
+
+    if (title.innerHTML == "PROJECT GALLERY") {
+        container.style.opacity = "1";
+    }
 }
 
-function fadeIn() {
+fadeIn = () => {
     writing.style.transitionDelay = "0.5s";
     title.style.transitionDelay = "0.5s";
+
+    if (title.innerHTML == "PROJECT GALLERY") {
+        container.style.transitionDelay = "0.5s";
+        container.style.zIndex = "11";
+    }
 fadeInStart();
 }
 
-function wingsOut() {
+
+wingsOut = () => {
     left.style.transitionDelay = "0.15s";
     right.style.transitionDelay = "0.15s";
     left.style.width = "0px";
@@ -129,7 +179,7 @@ function wingsOut() {
     heading.style.textShadow = "none";
 }
 
-function turnLines() {
+turnLines = () => {
     one.style.transition = "transform 0.25s";
     one.style.transform = "rotate(0deg) translate(0px, 0px)";
     three.style.transition = "transform 0.25s";
@@ -140,17 +190,45 @@ function turnLines() {
     two.style.opacity = "1";
 }
 
-function closeMenu() {
-turnLines();
-menuButton.setAttribute("onclick", "openMenu()");
-fadeIn();
-wingsOut();
-liftMenu();
+ closeMenu = () => { 
+     turnLines();
+     menuButton.setAttribute("onclick", "openMenu()");
+     fadeIn();
+     wingsOut();
+     liftMenu();
 }
 
-function linkClick() {
+linkClick = () => {
     turnLines();
-menuButton.setAttribute("onclick", "openMenu()");
-wingsOut();
-liftMenu();
+    menuButton.setAttribute("onclick", "openMenu()");
+    wingsOut();
+    liftMenu();
+}
+
+
+//Everything above here is the menu and page structure/effects
+
+
+
+
+//Below here deals with Projects Gallery:
+
+runProject = (project, image, URL) => {
+   if (projectOpen == true) {
+       closeProject(project1, image1,obj1);
+   }
+project.style.width = "100%";
+project.removeChild(image);
+obj.data = URL;
+project.appendChild(obj);
+projectOpen = true;
+project1 = project;
+image1 = image;
+obj1 = obj;
+}
+
+closeProject = (project1, image1, obj1) => {
+project1.style.width = "45%";
+project1.removeChild(obj1);
+project1.appendChild(image1);
 }

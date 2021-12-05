@@ -5,7 +5,7 @@
 </head>
 <body onload="fadeInStart()">
 <header>
-<h1 id="heading">Kester Jones</h1>
+<h1 id="heading">Kester<br>Jones</h1>
 <div id="menuButton" onmouseover="lighten()" onmouseout="darken()" onclick="openMenu()"> 
 <div id="one"><pre> </pre>
 </div>
@@ -15,14 +15,39 @@
 </div>
 </div>
 </header>
+<br>
 <h2 id="title">PROJECT GALLERY</h2>
-<p id="writing">Click on the images to interract with the projects!</p>
-
+<p id="writing">Click on the images to interact with the projects! <br><br>
+Please note: The tip calculator and lolcat clock were previous practice projects of mine so I was emulating websites that already exist, although the code is all my own (except for the code to import the font for the lolcat clock). The band website is an ongoing project, hence why the member bios and some pages are empty. The code is all mine other than the code used to create the background texture. </p>
+<br>
 <div id="container">
-<img src="" alt="Tip Calculator">
-<img src="" alt="Lolcat Clock">
-<img src="" alt="Burly Herd">
-<img src="" alt="Hello User">
+    <figure id="passwordCreator">
+        <figcaption>DOM Manipulation</figcaption>
+        <img src="img/passwordcreator.jpg" alt="Password Creator" onclick="runProject(passwordCreator, passW, passWURL)" id="passW">
+       </figure>
+
+    <figure id="numberizor">
+        <figcaption>Arrays and Array Methods</figcaption>
+    <img src="img/numberizor.jpg" alt="Filter or Reduce" onclick="runProject(numberizor, numB, numBURL)" id="numB">
+    </figure>
+
+    <figure id="tipCalculator">
+        <figcaption>Tip Calculator</figcaption>
+        <img src="img/tipcalculator.jpg" alt="Tip Calculator" onclick="runProject(tipCalculator, tipC, tipCURL)" id="tipC">
+    </figure>
+
+    <figure id="lolCat">
+        <figcaption>Lolcat Clock</figcaption>
+    <img src="img/Lolcat.png" alt="Lolcat Clock" onclick="runProject(lolCat, lolC, lolCURL)" id="lolC">
+    </figure>
+    
+    <figure id="burlyHerd">
+        <a href="https://github.com/KesterJJ/burly-herd.git" target="_blank" onclick="window.location.reload()">
+            <figcaption>Band Website</figcaption>
+            <img src="img/burlyherd.jpg" alt="Burly Herd"></a>
+    </figure>
+</div>
+<!--<img src="" alt="Hello User">
 <img src="" alt="What Type">
 <img src="" alt="Check Length">
 <img src="" alt="Sum of Two Numbers">
@@ -31,14 +56,7 @@
 <img src="" alt="Sum of Elements">
 <img src="" alt="Squaring a Number">
 <img src="" alt="Odd or Even">
-<img src="" alt="Sum of Positive">
-<img src="" alt="Password Creator">
-<img src="" alt="Filter or Reduce">
-<img src="" alt="Odd or Even">
-
-
-
-</div>
+<img src="" alt="Sum of Positive">-->
 
 <div id="right"></div>
 <div id="left"></div>
@@ -53,7 +71,7 @@
 <br>
 <a class="buttons" href="javascript:delay('index.html')" onclick="linkClick()" onmouseover="brighten(about)" onmouseout="unbrighten(about)" id="about">ABOUT</a>
 <br>
-<a class="buttons" href="javascript:delay('contact.html')" onclick="linkClick()" onmouseover="brighten(contact)" onmouseout="unbrighten(contact)" id="contact">CONTACT</a>
+<!--<a class="buttons" href="javascript:delay('contact.html')" onclick="linkClick()" onmouseover="brighten(contact)" onmouseout="unbrighten(contact)" id="contact">CONTACT</a>-->
 </div>
 <script src="script.js"></script>
 </body>
