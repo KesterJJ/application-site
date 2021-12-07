@@ -275,12 +275,15 @@ randomNumber = (max, min) => {
 showCard = () => {
     card.src = `img/${deck[randomNumber(deck.length - 1, 0)]}.png`
     card.style.zIndex = 3;
-    card.style.transform = rotateY(180);
+    
 }
 
 
 
-
+//delays links so animation can take place
+function delayShowCard() {
+    setTimeout(showCard(), 2000);
+}
 
 
 pushDeck();
