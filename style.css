@@ -132,3 +132,43 @@ transition: width 0.75s;
         height: 500px;
         border-radius: 10px;
     }
+
+
+
+    /*below here deals with feature*/
+
+#cardBox {
+    position: absolute;
+    left: 30%;
+    right: 30%;
+    width: 40%;
+    height: auto;
+background-color: white;
+z-index: 1;
+}
+
+#back, #deckBack, #card {
+    position: absolute;
+    width: 70%;
+    height: auto;
+left: 15%;
+right: 15%;
+}
+
+#deckBack {
+    z-index: 0;
+}
+
+#back {
+    z-index: 2;
+
+}
+
+#card {
+    z-index: 1;
+}
+
+#card, #back {
+    transition: transform 2s;
+    transform: rotateY(180deg);
+}

@@ -232,3 +232,66 @@ project1.style.width = "45%";
 project1.removeChild(obj1);
 project1.appendChild(image1);
 }
+
+
+//Below here is code for the feature
+let cardBox = document.getElementById("cardBox");
+let deckBack = document.getElementById("deckBack");
+let back = document.getElementById("back");
+let card = document.getElementById("card");
+
+
+
+
+let deck = [];
+
+pushDeck = () => {
+    let suits = ["clubs", "spades", "diamonds", "hearts"];
+    for (let i = 0; i < suits.length; i++) {
+    for (let j = 1; j < 14; j++) {
+if (j == 1) {
+    deck.push(`ace_of_${suits[i]}`);
+} else if (j == 11) {
+    deck.push(`jack_of_${suits[i]}`);
+  } else if (j == 12) {
+        deck.push(`queen_of_${suits[i]}`);
+    } else if (j == 13) {
+        deck.push(`king_of_${suits[i]}`);
+    } else {
+        deck.push(`${j}_of_${suits[i]}`);
+    }
+}
+}
+return deck;
+}
+
+
+randomNumber = (max, min) => {
+  let number = Math.floor(Math.random() * (max - min + 1) + min);
+  return number;
+}
+
+
+showCard = () => {
+    card.src = `img/${deck[randomNumber(deck.length - 1, 0)]}.png`
+    card.style.zIndex = 3;
+    card.style.transform = rotateY(180);
+}
+
+
+
+
+
+
+pushDeck();
+console.log(deck);
+
+console.log(randomNumber(52, 1));
+
+
+console.log(Math.floor(Math.random() * (3 - 0 + 1) + 0));
+
+console.log(Math.floor(Math.random() * (12 - 0 + 1) + 0));
+
+
+//}
