@@ -30,8 +30,15 @@
     z-index: 4;
     }
     
-    #writing, #title, #container, #writing2, #writing3, #writing4, #articleBox {
+    #writing, #container, #writing2, #writing3, #writing4, #writing5, #writing6, #writing7, #writing8 #articleBox {
         opacity: 0;
+    transition: opacity 0.8s;
+    z-index: 1;
+    text-indent: 60px;
+    }
+    
+    #title {
+    opacity: 0;
     transition: opacity 0.8s;
     z-index: 1;
     }
@@ -51,6 +58,8 @@
     padding: 100px;
     font-family: Helvetica, sans-serif;
     }
+
+
     
     #right, #left {
     height: 120%;
@@ -181,7 +190,7 @@ z-index: 13;
 border: none;
 }
 
-#clicker {
-    position: absolute;
-    right: 30%;
+footer {
+    position: relative;
+    bottom: 0px;
 }

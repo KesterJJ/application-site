@@ -78,6 +78,10 @@ let article = document.getElementById("article");
 let writing2 = document.getElementById("writing2");
 let writing3 = document.getElementById("writing3");
 let writing4 = document.getElementById("writing4");
+let writing5 = document.getElementById("writing5");
+let writing6 = document.getElementById("writing6");
+let writing7 = document.getElementById("writing7");
+let writing8 = document.getElementById("writing8");
 let articleBox = document.getElementById("articleBox");
 
 
@@ -126,10 +130,18 @@ function fadeOut() {
         writing2.style.transitionDelay = "0s";
         writing3.style.transitionDelay = "0s";
         writing4.style.transitionDelay = "0s";
+        writing5.style.transitionDelay = "0s";
+        writing6.style.transitionDelay = "0s";
+        writing7.style.transitionDelay = "0s";
+        writing8.style.transitionDelay = "0s";
         articleBox.style.transitionDelay = "0s";
     writing2.style.opacity = "0";
     writing3.style.opacity = "0";
     writing4.style.opacity = "0";
+    writing5.style.opacity = "0";
+    writing6.style.opacity = "0";
+    writing7.style.opacity = "0";
+    writing8.style.opacity = "0";
     articleBox.style.opacity = "0";
     }
     title.style.opacity = "0";
@@ -208,6 +220,10 @@ fadeInStart = () => {
     writing2.style.opacity = "1";
     writing3.style.opacity = "1";
     writing4.style.opacity = "1";
+    writing5.style.opacity = "1";
+    writing6.style.opacity = "1";
+    writing7.style.opacity = "1";
+    writing8.style.opacity = "1";
     articleBox.style.opacity = "1";
     }
     title.style.opacity = "1";
@@ -223,6 +239,10 @@ fadeIn = () => {
    writing2.style.transitionDelay = "0.5s";
     writing3.style.transitionDelay = "0.5s";
    writing4.style.transitionDelay = "0.5s";
+   writing5.style.transitionDelay = "0.5s";
+   writing6.style.transitionDelay = "0.5s";
+   writing7.style.transitionDelay = "0.5s";
+   writing8.style.transitionDelay = "0.5s";
     articleBox.style.transitionDelay = "0.5s";
     }
     title.style.transitionDelay = "0.5s";
@@ -382,6 +402,10 @@ let para = document.getElementById("para");
 article.removeChild(writing2);
 article.removeChild(writing3);
 article.removeChild(writing4);
+article.removeChild(writing5);
+article.removeChild(writing6);
+article.removeChild(writing7);
+article.removeChild(writing8);
 
 let k = 1;
 
@@ -394,7 +418,7 @@ fadeOutAndIn = (current, brandNew) => {
 }
 
 next = () => {
-    if (k < 4) {
+    if (k < 8) {
         if (k == 1) {
             writing.style.opacity = 0;
         setTimeout(function() {fadeOutAndIn(writing, writing2)}, 800);
@@ -404,10 +428,22 @@ next = () => {
             } else if (k == 3) {
                 writing3.style.opacity = 0;
                 setTimeout(function() {fadeOutAndIn(writing3, writing4)}, 800);
-                }
+                } else if (k == 4) {
+                    writing4.style.opacity = 0;
+                    setTimeout(function() {fadeOutAndIn(writing4, writing5)}, 800);
+                    } else if (k == 5) {
+                        writing5.style.opacity = 0;
+                        setTimeout(function() {fadeOutAndIn(writing5, writing6)}, 800);
+                        } else if (k == 6) {
+                            writing6.style.opacity = 0;
+                            setTimeout(function() {fadeOutAndIn(writing6, writing7)}, 800);
+                            } else if (k == 7) {
+                                writing7.style.opacity = 0;
+                                setTimeout(function() {fadeOutAndIn(writing7, writing8)}, 800);
+                                }
                 k++;
     }
-para.innerHTML = `${k}/4`;
+para.innerHTML = `${k}/8`;
 }
 
 previous = () => {
@@ -421,10 +457,22 @@ previous = () => {
             } else if (k == 4) {
                 writing4.style.opacity = 0;
                 setTimeout(function() {fadeOutAndIn(writing4, writing3)}, 800);
-                }
+                } else if (k == 5) {
+                    writing5.style.opacity = 0;
+                    setTimeout(function() {fadeOutAndIn(writing5, writing4)}, 800);
+                    } else if (k == 6) {
+                        writing6.style.opacity = 0;
+                        setTimeout(function() {fadeOutAndIn(writing6, writing5)}, 800);
+                        } else if (k == 7) {
+                            writing7.style.opacity = 0;
+                            setTimeout(function() {fadeOutAndIn(writing7, writing6)}, 800);
+                            } else if (k == 8) {
+                                writing8.style.opacity = 0;
+                                setTimeout(function() {fadeOutAndIn(writing8, writing7)}, 800);
+                                }
                 k--;
     }
-para.innerHTML = `${k}/4`;
+para.innerHTML = `${k}/8`;
 }
 
 
