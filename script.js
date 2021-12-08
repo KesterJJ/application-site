@@ -105,7 +105,7 @@ function fadeOut() {
     }
     title.style.opacity = "0";
 
-    if (title.innerHTML == "PROJECT GALLERY") {
+    if (title.innerHTML == "PROJECT GALLERY" || title.innerHTML == "CHALLENGES") {
         container.style.transitionDelay = "0s";
         container.style.opacity = "0";
         container.style.zIndex = "-2";
@@ -183,7 +183,7 @@ fadeInStart = () => {
     }
     title.style.opacity = "1";
 
-    if (title.innerHTML == "PROJECT GALLERY") {
+    if (title.innerHTML == "PROJECT GALLERY" || title.innerHTML == "CHALLENGES") {
         container.style.opacity = "1";
     }
 }
@@ -198,7 +198,7 @@ fadeIn = () => {
     }
     title.style.transitionDelay = "0.5s";
 
-    if (title.innerHTML == "PROJECT GALLERY") {
+    if (title.innerHTML == "PROJECT GALLERY" || title.innerHTML == "CHALLENGES") {
         container.style.transitionDelay = "0.5s";
         container.style.zIndex = "11";
     }
