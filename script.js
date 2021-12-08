@@ -15,6 +15,8 @@ var about = document.getElementById("about");
 var contact = document.getElementById("contact");
 
 //Variables below here are for Project Gallery
+
+
 var container = document.getElementById("container");
 var lolCat = document.getElementById("lolCat");
 var tipCalculator = document.getElementById("tipCalculator");
@@ -41,7 +43,34 @@ obj.type = "text/html";
 obj.width = "100";
 obj.height = "500";
 
-//variables above for project gallery
+//variables above for PROJECT GALLERY
+
+
+
+
+//variables below are for the CHALLENGES
+
+var capitaliseKeys = document.getElementById("capitalise-keys");
+var checkLength = document.getElementById("check-length");
+var checkType = document.getElementById("check-type");
+var addAndMultiply = document.getElementById("add-and-multiply");
+var goingShopping = document.getElementById("going-shopping");
+var greetUser = document.getElementById("greet-user");
+var mapObject = document.getElementById("map-object");
+var oddOrEven = document.getElementById("odd-or-even");
+var returnLarger = document.getElementById("return-larger");
+var squaringANumber = document.getElementById("squaring-a-number");
+var stringToObject = document.getElementById("string-to-object");
+var sumOfElements = document.getElementById("sum-of-elements");
+var sumOfPositive = document.getElementById("sum-of-positive");
+var sumOfTwoNumbers = document.getElementById("sum-of-two-numbers");
+
+
+
+
+
+//variables above are for the CHALLENGES
+
 
 //variables below are for the ABOUT page
 
@@ -269,7 +298,7 @@ project1.appendChild(image1);
 }
 
 
-
+//above here is for the PROJECT GALLERY
 
 
 //Below here is code for the feature
@@ -403,3 +432,22 @@ para.innerHTML = `${k}/4`;
 }
 
 //Above here deals with the writing in the ABOUT page
+
+
+
+//Below here deals with the CHALLENGES
+
+/*runProject = (project) => {
+    if (projectOpen == true) {
+        closeProject(project1);
+    }
+ project.style.width = "100%";
+
+ projectOpen = true;
+ project1 = project;
+ }
+ 
+ closeProject = (project1) => {
+ project1.style.width = "45%";
+ }
+ */
