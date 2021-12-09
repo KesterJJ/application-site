@@ -14,8 +14,10 @@ var feature = document.getElementById("feature");
 var about = document.getElementById("about");
 var contact = document.getElementById("contact");
 
-//Variables below here are for Project Gallery
+//variables above for MENU FUNCTION
 
+
+//Variables below here are for PROJECT GALLERY
 
 var container = document.getElementById("container");
 var lolCat = document.getElementById("lolCat");
@@ -65,11 +67,10 @@ var sumOfElements = document.getElementById("sum-of-elements");
 var sumOfPositive = document.getElementById("sum-of-positive");
 var sumOfTwoNumbers = document.getElementById("sum-of-two-numbers");
 
-
-
-
-
 //variables above are for the CHALLENGES
+
+
+
 
 
 //variables below are for the ABOUT page
@@ -82,13 +83,24 @@ let writing5 = document.getElementById("writing5");
 let writing6 = document.getElementById("writing6");
 let writing7 = document.getElementById("writing7");
 let writing8 = document.getElementById("writing8");
-let articleBox = document.getElementById("articleBox");
+
+//variables above for ABOUT page
+
+
+
+
+//variables below for FEATURE
+
+let cardCount = document.getElementById("cardCount");
+let options = document.getElementById("options");
+
+//variables above for FEATURE
 
 
 
 
 
-// Everything below here until the ending comment controls the MENU FUNCTION and pages structure
+// Everything below here controls the MENU FUNCTION and pages structure
 
 
 //delays links so animation can take place
@@ -126,31 +138,14 @@ function fadeOut() {
     writing.style.transitionDelay = "0s";
     title.style.transitionDelay = "0s";
     writing.style.opacity = "0";
-    if (title.innerHTML == "ABOUT") {
-        writing2.style.transitionDelay = "0s";
-        writing3.style.transitionDelay = "0s";
-        writing4.style.transitionDelay = "0s";
-        writing5.style.transitionDelay = "0s";
-        writing6.style.transitionDelay = "0s";
-        writing7.style.transitionDelay = "0s";
-        writing8.style.transitionDelay = "0s";
-        articleBox.style.transitionDelay = "0s";
-    writing2.style.opacity = "0";
-    writing3.style.opacity = "0";
-    writing4.style.opacity = "0";
-    writing5.style.opacity = "0";
-    writing6.style.opacity = "0";
-    writing7.style.opacity = "0";
-    writing8.style.opacity = "0";
-    articleBox.style.opacity = "0";
-    }
     title.style.opacity = "0";
-
-    if (title.innerHTML == "PROJECT GALLERY" || title.innerHTML == "CHALLENGES") {
         container.style.transitionDelay = "0s";
         container.style.opacity = "0";
         container.style.zIndex = "-2";
-    }
+        if (title.innerHTML == "FEATURE") {
+            options.style.transitionDelay = "0s";
+        options.style.opacity = "0";
+        }
 }
 
 
@@ -202,6 +197,7 @@ function dropMenu() {
 
 function liftMenu() {
     menu.style.zIndex = -20;
+
     menu.getElementsByClassName("buttons")[0].style.transitionDelay = "0s";
     menu.getElementsByClassName("buttons")[1].style.transitionDelay = "0s";
     menu.getElementsByClassName("buttons")[2].style.transitionDelay = "0s";
@@ -209,48 +205,29 @@ function liftMenu() {
     menu.getElementsByClassName("buttons")[0].style.top = "0px";
     menu.getElementsByClassName("buttons")[1].style.top = "0px";
     menu.getElementsByClassName("buttons")[2].style.top = "0px";
-    menu.getElementsByClassName("buttons")[3].style.top = "0px";
+    menu.getElementsByClassName("buttons")[3].style.top = "0px"; 
 }
 
 
 
 fadeInStart = () => {
     writing.style.opacity = "1";
-    if (title.innerHTML == "ABOUT") {
-    writing2.style.opacity = "1";
-    writing3.style.opacity = "1";
-    writing4.style.opacity = "1";
-    writing5.style.opacity = "1";
-    writing6.style.opacity = "1";
-    writing7.style.opacity = "1";
-    writing8.style.opacity = "1";
-    articleBox.style.opacity = "1";
-    }
     title.style.opacity = "1";
-
-    if (title.innerHTML == "PROJECT GALLERY" || title.innerHTML == "CHALLENGES") {
         container.style.opacity = "1";
-    }
+        if (title.innerHTML == "FEATURE") {
+            options.style.opacity = "1";
+        }
 }
 
 fadeIn = () => {
     writing.style.transitionDelay = "0.5s";
-    if (title.innerHTML == "ABOUT") {
-   writing2.style.transitionDelay = "0.5s";
-    writing3.style.transitionDelay = "0.5s";
-   writing4.style.transitionDelay = "0.5s";
-   writing5.style.transitionDelay = "0.5s";
-   writing6.style.transitionDelay = "0.5s";
-   writing7.style.transitionDelay = "0.5s";
-   writing8.style.transitionDelay = "0.5s";
-    articleBox.style.transitionDelay = "0.5s";
-    }
     title.style.transitionDelay = "0.5s";
-
-    if (title.innerHTML == "PROJECT GALLERY" || title.innerHTML == "CHALLENGES") {
         container.style.transitionDelay = "0.5s";
         container.style.zIndex = "11";
-    }
+        if (title.innerHTML == "FEATURE") {
+            options.style.transitionDelay = "0.5s";
+        options.style.zIndex = "12";
+        }
 fadeInStart();
 }
 
@@ -360,14 +337,20 @@ randomNumber = (max, min) => {
 
 
 showCard = () => {
-    card.style.zIndex = 3;
-    console.log(deck[0]);
+
+    setTimeout(function() {card.style.zIndex = 3;}, 500);
+    back.style.transform = "rotateY(180deg)";
+    card.style.transform = "rotateY(-180deg)";
 }
 
-hideCard = () => card.style.zIndex = 1;
+hideCard = () => {
+    setTimeout(function() {card.style.zIndex = 1;}, 500);
+back.style.transform = "rotateY(0deg)";
+card.style.transform = "rotateY(0)";
+}
 
 shuffle = () => {
-    hideCard();
+
     let newDeck = [];
     for (let i = 0; i < deck.length; i += 0) {
     let randomNo = randomNumber(deck.length - 1, 0);
@@ -377,13 +360,142 @@ shuffle = () => {
     deck = newDeck;
     card.src = `img/${deck[0]}.png`
 }
-
-
-//delays links so animation can take place
-function delayShowCard() {
-    setTimeout(showCard(), 2000);
+shuffleDeck = () => {
+    hideCard();
+    setTimeout(function() { shuffle(); }, 500);
+    
 }
 
+removeBacks = () => {
+    if (deck.length < 2) {
+        deckBack.style.opacity = 0;
+    }
+        back.style.opacity = 0;
+        card.style.opacity = 0;
+
+}
+
+includeCards = () => {
+back.style.transition = "transform 1s linear, left 0s";
+card.style.transition = "transform 1s linear, left 0s";
+back.style.left = "0px";
+card.style.left = "0px";
+if (deck.length >= 1) {
+back.style.opacity = 1;
+card.style.opacity = 1;
+}
+}
+
+
+
+removeCard = () => {
+    if (deck.length > 0) {
+    removedCard = deck.shift();
+    removedCards.push(removedCard);
+    console.log(removedCards);
+    card.src = `img/${deck[0]}.png`;
+    removeBacks();
+    countCards();
+    }
+}
+
+
+removeSuit = (suit) => {
+    let removed;
+    for (let i = 0; i < deck.length; i++) {
+        if (deck[i].includes(`${suit}`)) {
+            removed = deck.splice(i, 1);
+            removedCards.push(removed[0]);
+            i--
+        }
+
+    }
+    card.src = `img/${deck[0]}.png`;
+    countCards();
+    removeBacks();
+    includeCards();
+    console.log(removedCards);
+}
+
+//var removeC = removeCard();
+/*var removeSClubs = removeSuit('clubs');
+const removeSSpades = removeSuit('spades');
+const removeSDiamonds = removeSuit('diamonds');
+const removeSHearts = removeSuit('Hearts');*/
+
+
+takeAway = () => {
+    back.style.transition = "transform 1s linear, left 0.5s";
+card.style.transition = "transform 1s linear, left 0.5s";
+    back.style.left = "50%";
+    card.style.left = "50%";
+
+    setTimeout(function() {removeCard()}, 1000);
+    setTimeout(function() {includeCards()}, 1000);
+    hideCard();
+}
+
+retrieveBacks = () => {
+    if (deck.length >= 2) {
+        deckBack.style.opacity = 1;
+    }
+    if (deck.length >= 1) {
+        back.style.opacity = 1;
+        card.style.opacity = 1;
+    }
+}
+
+retrieveLastCard = () => {
+    if (removedCards.length > 0) {
+    let retrieved = removedCards.pop();
+    deck.unshift(retrieved);
+    card.src = `img/${deck[0]}.png`;
+    retrieveBacks();
+    countCards();
+    }
+}
+
+retrieveBottomCard = () => {
+    if (removedCards.length > 0) {
+    let retrieved = removedCards.shift();
+    deck.unshift(retrieved);
+    card.src = `img/${deck[0]}.png`;
+    retrieveBacks();
+    countCards();
+    }
+}
+
+retrieveRandomCard = () => {
+    if (removedCards.length > 0) {
+        let randomNo = randomNumber(removedCards.length - 1, 0);
+    let retrieved = removedCards.splice(randomNo, 1);
+    deck.unshift(retrieved[0]);
+    card.src = `img/${deck[0]}.png`;
+    retrieveBacks();
+    countCards();
+    }
+    console.log(deck);
+    console.log(removedCards);
+}
+
+retrieveSuit = (suit) => {
+    let retrieved;
+    for (let i = 0; i < removedCards.length; i++) {
+        if (removedCards[i].includes(`${suit}`)) {
+            retrieved = removedCards.splice(i, 1);
+            deck.push(retrieved[0]);
+            i--
+        }
+
+    }
+    card.src = `img/${deck[0]}.png`;
+    countCards();
+    retrieveBacks();
+}
+
+countCards = () => {
+    cardCount.innerHTML = `Cards: ${deck.length}`;
+}
 
 
 pushDeck();
@@ -392,9 +504,9 @@ card.src = `img/${deck[0]}.png`
 
 }
 
+//Above here deals with FEATURE
 
-
-//Below here deals with the writing on the About page
+//Below here deals with the writing on the ABOUT page
 
 if (title.innerHTML == "ABOUT") {
 
@@ -481,21 +593,16 @@ para.innerHTML = `${k}/8`;
 
 //Above here deals with the writing in the ABOUT page
 
-
-
-//Below here deals with the CHALLENGES
-
-/*runProject = (project) => {
+//Below deals with CHALLENGES
+runChallenge = (project) => {
     if (projectOpen == true) {
-        closeProject(project1);
+        closeChallenge(project1);
     }
  project.style.width = "100%";
-
  projectOpen = true;
  project1 = project;
  }
  
- closeProject = (project1) => {
+ closeChallenge = (project1) => {
  project1.style.width = "45%";
  }
- */

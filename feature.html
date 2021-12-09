@@ -18,18 +18,37 @@
 <br>
 <h2 id="title">FEATURE</h2>
 <p id="writing">Welcome to my feature! Here we have a deck of cards. It can be used to work out strategies for card games or solve maths problems involving cards. You can add or remove cards and see the likelihood of drawing any particular card with what is left. Enjoy!</p>
-<div id="cardBox">
+<div id="container">
+    <div id="cardBox">
+        <figure>
     <img id="deckBack" src="img/back.jpg" alt="Deck of cards">
     <img id="back" src="img/back.jpg" alt="Back of card">
     <img id="card" alt="Card">
+    <figcaption id="cardCount">Cards: 52</figcaption>
+    </figure>
 </div>
 <br>
 
-<button onclick="shuffle()">Shuffle Deck</button>
-<br>
-<button onclick="delayShowCard()">Show Card</button>
-<br>
-<button onclick="hideCard()">Hide Card</button>
+</div>
+<div id="options">
+        <button onclick="shuffleDeck()" class="options">Shuffle Deck</button>
+        <button onclick="showCard()" class="options">Show Card</button>
+        <button onclick="hideCard()" class="options">Hide Card</button>
+        <button onclick="takeAway()" class="options">Remove Current Card</button>
+        <button onclick="removeSuit('clubs')" class="options">Remove Clubs</button>
+        <button onclick="removeSuit('spades')" class="options">Remove Spades</button>
+        <button onclick="removeSuit('diamonds')" class="options">Remove Diamonds</button>
+        <button onclick="removeSuit('hearts')" class="options">Remove Hearts</button>
+        <button onclick="retrieveLastCard()" class="options">Retrieve Last Card</button>
+        <button onclick="retrieveBottomCard()" class="options">Retrieve Bottom Card</button>
+        <button onclick="retrieveRandomCard()" class="options">Retrieve Random Card</button>
+        <button onclick="retrieveSuit('clubs')" class="options">Retrieve Clubs</button>
+        <button onclick="retrieveSuit('spades')" class="options">Retrieve Spades</button>
+        <button onclick="retrieveSuit('diamonds')" class="options">Retrieve Diamonds</button>
+        <button onclick="retrieveSuit('hearts')" class="options">Retrieve Hearts</button>
+
+        </div>
+
 
 <div id="right"></div>
 <div id="left"></div>
