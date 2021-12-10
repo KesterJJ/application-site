@@ -338,15 +338,42 @@ randomNumber = (max, min) => {
 
 showCard = () => {
 
-    setTimeout(function() {card.style.zIndex = 3;}, 500);
+    setTimeout(function() {card.style.zIndex = 3;}, 250);
     back.style.transform = "rotateY(180deg)";
     card.style.transform = "rotateY(-180deg)";
 }
 
 hideCard = () => {
-    setTimeout(function() {card.style.zIndex = 1;}, 500);
+    setTimeout(function() {card.style.zIndex = 1;}, 250);
 back.style.transform = "rotateY(0deg)";
 card.style.transform = "rotateY(0)";
+}
+
+moveCardsRight = () => deckBack.style.left ="50%";
+
+moveCardsLeftDown = () => {
+deckBack.style.zIndex = 0;
+deckBack.style.left = "0px";
+}
+
+moveCardsLeftUp = () => {
+    deckBack.style.zIndex = 4;
+    deckBack.style.left = "0px";
+}
+
+moveCards = () => {
+moveCardsRight();
+setTimeout(function() {moveCardsLeftUp()}, 100);
+setTimeout(function() {moveCardsRight()}, 200);
+setTimeout(function() {moveCardsLeftDown()}, 300);
+setTimeout(function() {moveCardsRight()}, 400);
+setTimeout(function() {moveCardsLeftUp()}, 500);
+setTimeout(function() {moveCardsRight()}, 600);
+setTimeout(function() {moveCardsLeftDown()}, 700);
+setTimeout(function() {moveCardsRight()}, 800);
+setTimeout(function() {moveCardsLeftUp()}, 900);
+setTimeout(function() {moveCardsRight()}, 1000);
+setTimeout(function() {moveCardsLeftDown()}, 1100);
 }
 
 shuffle = () => {
@@ -363,6 +390,7 @@ shuffle = () => {
 shuffleDeck = () => {
     hideCard();
     setTimeout(function() { shuffle(); }, 500);
+    setTimeout(function() {moveCards()}, 500);
     
 }
 
@@ -376,8 +404,8 @@ removeBacks = () => {
 }
 
 includeCards = () => {
-back.style.transition = "transform 1s linear, left 0s";
-card.style.transition = "transform 1s linear, left 0s";
+back.style.transition = "transform 0.5s linear, left 0s";
+card.style.transition = "transform 0.5s linear, left 0s";
 back.style.left = "0px";
 card.style.left = "0px";
 if (deck.length >= 1) {
@@ -425,8 +453,8 @@ const removeSHearts = removeSuit('Hearts');*/
 
 
 takeAway = () => {
-    back.style.transition = "transform 1s linear, left 0.5s";
-card.style.transition = "transform 1s linear, left 0.5s";
+    back.style.transition = "transform 0.5s linear, left 0.5s";
+card.style.transition = "transform 0.5s linear, left 0.5s";
     back.style.left = "50%";
     card.style.left = "50%";
 
