@@ -185,27 +185,14 @@ two.style.transform = "translate(0px)";
 
 function dropMenu() {
     menu.style.zIndex = 20;
-    menu.getElementsByClassName("buttons")[0].style.transitionDelay = "0.2s";
-    menu.getElementsByClassName("buttons")[1].style.transitionDelay = "0.2s";
-    menu.getElementsByClassName("buttons")[2].style.transitionDelay = "0.2s";
-    menu.getElementsByClassName("buttons")[3].style.transitionDelay = "0.2s";
-    menu.getElementsByClassName("buttons")[0].style.top = "55%";
-    menu.getElementsByClassName("buttons")[1].style.top = "55%";
-    menu.getElementsByClassName("buttons")[2].style.top = "55%";
-    menu.getElementsByClassName("buttons")[3].style.top = "55%";
+    menu.style.height = "100%";
+    menu.style.transitionDelay = "0.2s";
 }
 
 function liftMenu() {
     menu.style.zIndex = -20;
-
-    menu.getElementsByClassName("buttons")[0].style.transitionDelay = "0s";
-    menu.getElementsByClassName("buttons")[1].style.transitionDelay = "0s";
-    menu.getElementsByClassName("buttons")[2].style.transitionDelay = "0s";
-    menu.getElementsByClassName("buttons")[3].style.transitionDelay = "0s";
-    menu.getElementsByClassName("buttons")[0].style.top = "0px";
-    menu.getElementsByClassName("buttons")[1].style.top = "0px";
-    menu.getElementsByClassName("buttons")[2].style.top = "0px";
-    menu.getElementsByClassName("buttons")[3].style.top = "0px"; 
+    menu.style.transitionDelay = "0s";
+    menu.style.height = "300%";
 }
 
 

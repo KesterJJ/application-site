@@ -82,8 +82,10 @@
     #menu {
     position: absolute;
     bottom: 0px;
-    height: 150%;
+    height: 300%;
     width: 40%;
+    transition: height 0.75s;
+    transition-delay: 0.2s;
     left:30%;
     right: 30%;
     z-index: -1;
@@ -95,10 +97,8 @@
     
     .buttons {
     position: relative;
-    transition: top 0.75s;
-    transition-delay: 0.2s;
     font-size: 40px;
-    top: 0px;
+    top: 30%;
     flex-shrink: 1;
     }
 
