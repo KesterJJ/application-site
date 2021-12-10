@@ -525,7 +525,13 @@ let k = 1;
 fadeOutAndIn = (current, brandNew) => {
     article.removeChild(current);
     article.appendChild(brandNew);
-    //brandNew.style.transition = "opacity 1.6s";
+    brandNew.style.transition = "opacity 0s";
+    brandNew.style.opacity = 0;
+    setTimeout(function() {fadeBackIn(brandNew)}, 801);
+}
+
+fadeBackIn = (brandNew) => {
+    brandNew.style.transition = "opacity 0.8s";
     brandNew.style.opacity = 1;
 }
 
@@ -533,7 +539,11 @@ next = () => {
     if (k < 8) {
         if (k == 1) {
             writing.style.opacity = 0;
+            writing2.style.opacity = 0;
         setTimeout(function() {fadeOutAndIn(writing, writing2)}, 800);
+        
+
+
         } else if (k == 2) {
             writing2.style.opacity = 0;
             setTimeout(function() {fadeOutAndIn(writing2, writing3)}, 800);
