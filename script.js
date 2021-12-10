@@ -297,6 +297,7 @@ let suits = ["clubs", "spades", "diamonds", "hearts"];
 let deck = [];
 let removedCards = [];
 
+//creates the deck
 pushDeck = () => {
     for (let i = 0; i < suits.length; i++) {
     for (let j = 1; j < 14; j++) {
@@ -316,7 +317,7 @@ if (j == 1) {
 return deck;
 }
 
-
+//choses random number between max and min inclusive
 randomNumber = (max, min) => {
   let number = Math.floor(Math.random() * (max - min + 1) + min);
   return number;
@@ -324,7 +325,6 @@ randomNumber = (max, min) => {
 
 
 showCard = () => {
-
     setTimeout(function() {card.style.zIndex = 3;}, 250);
     back.style.transform = "rotateY(180deg)";
     card.style.transform = "rotateY(-180deg)";
@@ -336,6 +336,8 @@ back.style.transform = "rotateY(0deg)";
 card.style.transform = "rotateY(0)";
 }
 
+
+//The next few functions do the shuffle animation
 moveCardsRight = () => deckBack.style.left ="50%";
 
 moveCardsLeftDown = () => {
@@ -363,6 +365,8 @@ setTimeout(function() {moveCardsRight()}, 1000);
 setTimeout(function() {moveCardsLeftDown()}, 1100);
 }
 
+
+//deals with the actual shuffle function
 shuffle = () => {
 
     let newDeck = [];
@@ -381,6 +385,7 @@ shuffleDeck = () => {
     
 }
 
+//Takes away the image of the card if there aren't any left
 removeBacks = () => {
     if (deck.length < 2) {
         deckBack.style.opacity = 0;
@@ -390,6 +395,7 @@ removeBacks = () => {
 
 }
 
+//moves the cards back into the pile
 includeCards = () => {
 back.style.transition = "transform 0.5s linear, left 0s";
 card.style.transition = "transform 0.5s linear, left 0s";
@@ -402,7 +408,7 @@ card.style.opacity = 1;
 }
 
 
-
+//moves the top card to the right and makes it fade out
 removeCard = () => {
     if (deck.length > 0) {
     removedCard = deck.shift();
@@ -414,11 +420,36 @@ removeCard = () => {
     }
 }
 
+//returns the image of the back of the card to the bottom of the deck
+returnDeckBack = () => {
+    deckBack.style.transition = "opacity 0s, left 0s";
+    deckBack.style.left = "0px";
+    if (deck.length > 1) {
+        deckBack.style.opacity = 1;
+    }
+    setTimeout(function() {deckBack.style.transition = "left 0.1s";}, 500);
+}
 
+//fades the back of the deck image after it moves right 
+fadeCardOut = () => {
+    deckBack.style.opacity = 0;
+    deckBack.style.transition = "opacity 0.25s, left 0s";
+    setTimeout(function() {returnDeckBack()}, 250);
+}
+
+//moves the back of the deck image to the right
+moveCardOut = () => {
+    deckBack.style.transition = "left 0.25s";
+    deckBack.style.left = "50%"
+    setTimeout(function() {fadeCardOut()}, 500);
+}
+
+//removes chosen suit from the deck and does animation
 removeSuit = (suit) => {
     let removed;
     for (let i = 0; i < deck.length; i++) {
         if (deck[i].includes(`${suit}`)) {
+            moveCardOut();
             removed = deck.splice(i, 1);
             removedCards.push(removed[0]);
             i--
@@ -438,7 +469,7 @@ const removeSSpades = removeSuit('spades');
 const removeSDiamonds = removeSuit('diamonds');
 const removeSHearts = removeSuit('Hearts');*/
 
-
+//removes top card
 takeAway = () => {
     back.style.transition = "transform 0.5s linear, left 0.5s";
 card.style.transition = "transform 0.5s linear, left 0.5s";
@@ -448,6 +479,35 @@ card.style.transition = "transform 0.5s linear, left 0.5s";
     setTimeout(function() {removeCard()}, 1000);
     setTimeout(function() {includeCards()}, 1000);
     hideCard();
+}
+
+//Below here deals with putting cards back into the deck
+
+
+
+
+takeInLast = () => {
+    if (removedCards.length > 0) {
+    moveCardIn();
+    setTimeout(function() {retrieveLastCard()}, 500);
+    hideCard();
+    }
+}
+
+takeInRandom = () => {
+    if (removedCards.length > 0) {
+    moveCardIn();
+    setTimeout(function() {retrieveRandomCard()}, 500);
+    hideCard();
+    }
+}
+
+takeInBottom = () => {
+    if (removedCards.length > 0) {
+    moveCardIn();
+    setTimeout(function() {retrieveBottomCard()}, 500);
+    hideCard();
+    }
 }
 
 retrieveBacks = () => {
@@ -461,13 +521,11 @@ retrieveBacks = () => {
 }
 
 retrieveLastCard = () => {
-    if (removedCards.length > 0) {
     let retrieved = removedCards.pop();
     deck.unshift(retrieved);
     card.src = `img/${deck[0]}.png`;
     retrieveBacks();
     countCards();
-    }
 }
 
 retrieveBottomCard = () => {
@@ -493,12 +551,39 @@ retrieveRandomCard = () => {
     console.log(removedCards);
 }
 
+
+//returns the image of the back of the card to the bottom of the deck
+returnDeckBackIn = () => {
+    deckBack.style.transition = "opacity 0s, left 0.25s";
+    deckBack.style.left = "0px";
+    setTimeout(function() {deckBack.style.transition = "left 0.1s";}, 250);
+}
+
+//fades in the back of the deck image after it moves right 
+fadeCardIn = () => {
+    deckBack.style.opacity = 1;
+    deckBack.style.transition = "opacity 0.25s, left 0.25s";
+    setTimeout(function() {returnDeckBackIn()}, 250);
+}
+
+//makes the bottom card image invisible and moves it to the right
+moveCardIn = () => {
+    deckBack.style.transition = "opacity 0s, left 0s";
+    deckBack.style.opacity = 0;
+    deckBack.style.left = "50%"
+    setTimeout(function() {fadeCardIn();}, 1)
+}
+
+
+
+//retrieves chosen suit
 retrieveSuit = (suit) => {
     let retrieved;
     for (let i = 0; i < removedCards.length; i++) {
         if (removedCards[i].includes(`${suit}`)) {
             retrieved = removedCards.splice(i, 1);
             deck.push(retrieved[0]);
+            moveCardIn();
             i--
         }
 
